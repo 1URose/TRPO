@@ -1,0 +1,1024 @@
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO> git clone https://github.com/1URose/TRPO.git person1
+Cloning into 'person1'...
+warning: You appear to have cloned an empty repository.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO> cd person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git remote -v
+origin  https://github.com/1URose/TRPO.git (fetch)
+origin  https://github.com/1URose/TRPO.git (push)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> mkdir LR1
+
+
+    Каталог: C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1
+
+
+Mode                 LastWriteTime         Length Name                                                                                               
+----                 -------------         ------ ----                                                                                               
+d-----        01.11.2026     22:07                LR1                                                                                                
+
+
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> cd LR1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1\LR1> 
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1\LR1> "Laboratory Work 1: Git" | Set-Content README.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1\LR1> "Version: 1.0" | Set-Content version.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1\LR1> "Project status: started" | Set-Content status.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1\LR1> cd ..
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Initial commit with three files"
+[main (root-commit) 69a8e17] LR1: Initial commit with three files
+ 3 files changed, 3 insertions(+)
+ create mode 100644 LR1/README.txt
+ create mode 100644 LR1/status.txt
+ create mode 100644 LR1/version.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push -u origin main
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (6/6), 419 bytes | 419.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/1URose/TRPO.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline
+69a8e17 (HEAD -> main, origin/main) LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> cd ..
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO> git clone https://github.com/1URose/TRPO.git person2
+Cloning into 'person2'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (6/6), done.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO> cd person2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git log --oneline
+69a8e17 (HEAD -> main, origin/main, origin/HEAD) LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> "Project status: updated by person2" | Set-Content LR1/status.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> "Project status: updated by person2" | Set-Content LR1/status.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git diff
+diff --git a/LR1/status.txt b/LR1/status.txt
+index 3e116c0..0a74675 100644
+--- a/LR1/status.txt
++++ b/LR1/status.txt
+@@ -1 +1 @@
+-Project status: started
++Project status: updated by person2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git add LR1/status.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git commit -m "LR1: Update status by person2"
+[main 09d7147] LR1: Update status by person2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> cd ../person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-Content LR1/status.txt
+Project status: started
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> cd ../person2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git push origin main
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 405 bytes | 405.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/1URose/TRPO.git
+   69a8e17..09d7147  main -> main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> cd ../person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-Content LR1/status.txt
+Project status: started
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git pull origin main
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 385 bytes | 13.00 KiB/s, done.
+From https://github.com/1URose/TRPO
+ * branch            main       -> FETCH_HEAD
+   69a8e17..09d7147  main       -> origin/main
+Updating 69a8e17..09d7147
+Fast-forward
+ LR1/status.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-Content LR1/status.txt
+Project status: updated by person2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> "Version: 1.1" | Set-Content LR1/version.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> 
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/version.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Update version by person1"
+[main 0e2c21d] LR1: Update version by person1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push origin main
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 327 bytes | 327.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/1URose/TRPO.git
+   09d7147..0e2c21d  main -> main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> cd ../person2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git pull origin main
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 1), reused 4 (delta 1), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 307 bytes | 38.00 KiB/s, done.
+From https://github.com/1URose/TRPO
+ * branch            main       -> FETCH_HEAD
+   09d7147..0e2c21d  main       -> origin/main
+Updating 09d7147..0e2c21d
+Fast-forward
+ LR1/version.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> Get-Content LR1/version.txt
+Version: 1.1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git log --oneline
+0e2c21d (HEAD -> main, origin/main, origin/HEAD) LR1: Update version by person1
+09d7147 LR1: Update status by person2
+69a8e17 LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> cd ../person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git branch
+* main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch -c dev
+Switched to a new branch 'dev'
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> "Feature developed by person1" | Set-Content LR1/feature1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/feature1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Add feature1 in dev branch"
+[dev 42b3bb3] LR1: Add feature1 in dev branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/feature1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push -u origin dev
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 431 bytes | 431.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'dev' on GitHub by visiting:
+remote:      https://github.com/1URose/TRPO/pull/new/dev
+remote: 
+To https://github.com/1URose/TRPO.git
+ * [new branch]      dev -> dev
+branch 'dev' set up to track 'origin/dev'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> cd ../person2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git fetch origin
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 411 bytes | 51.00 KiB/s, done.
+From https://github.com/1URose/TRPO
+ * [new branch]      dev        -> origin/dev
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git branch -a
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/dev
+  remotes/origin/main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git switch -c dev2 main
+Switched to a new branch 'dev2'
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> "Feature developed by person2" | Set-Content LR1/feature2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git add LR1/feature2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git commit -m "LR1: Add feature2 in dev2 branch"
+[dev2 2244de5] LR1: Add feature2 in dev2 branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/feature2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git push -u origin dev2
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 433 bytes | 433.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'dev2' on GitHub by visiting:
+remote:      https://github.com/1URose/TRPO/pull/new/dev2
+remote: 
+To https://github.com/1URose/TRPO.git
+ * [new branch]      dev2 -> dev2
+branch 'dev2' set up to track 'origin/dev2'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> Add-Content LR1/feature2.txt "Additional information added by person2"
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git diff
+diff --git a/LR1/feature2.txt b/LR1/feature2.txt
+index 37823dc..300ac03 100644
+--- a/LR1/feature2.txt
++++ b/LR1/feature2.txt
+@@ -1 +1,2 @@
+ Feature developed by person2
++Additional information added by person2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git add LR1/feature2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git commit --amend --no-edit
+[dev2 f45e919] LR1: Add feature2 in dev2 branch
+ Date: Sun Nov 1 22:10:51 2026 +0300
+ 1 file changed, 2 insertions(+)
+ create mode 100644 LR1/feature2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git push --force-with-lease origin dev2
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 461 bytes | 461.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/1URose/TRPO.git
+ + 2244de5...f45e919 dev2 -> dev2 (forced update)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git log --oneline --all --graph --decorate
+* f45e919 (HEAD -> dev2, origin/dev2) LR1: Add feature2 in dev2 branch
+| * 42b3bb3 (origin/dev) LR1: Add feature1 in dev branch
+|/  
+* 0e2c21d (origin/main, origin/HEAD, main) LR1: Update version by person1
+* 09d7147 LR1: Update status by person2
+* 69a8e17 LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git branch -a
+* dev2
+  main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/dev
+  remotes/origin/dev2
+  remotes/origin/main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> Get-Content LR1/feature2.txt
+Feature developed by person2
+Additional information added by person2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git log --oneline --all --graph --decorate
+* f45e919 (HEAD -> dev2, origin/dev2) LR1: Add feature2 in dev2 branch
+| * 42b3bb3 (origin/dev) LR1: Add feature1 in dev branch
+|/  
+* 0e2c21d (origin/main, origin/HEAD, main) LR1: Update version by person1
+* 09d7147 LR1: Update status by person2
+* 69a8e17 LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git branch -a
+* dev2
+  main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/dev
+  remotes/origin/dev2
+  remotes/origin/main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> cd ../person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git fetch origin
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 441 bytes | 20.00 KiB/s, done.
+From https://github.com/1URose/TRPO
+ * [new branch]      dev2       -> origin/dev2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> 
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch -c demo-merge
+Switched to a new branch 'demo-merge'
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git merge --no-ff dev -m "LR1: Merge dev into demo-merge"
+Merge made by the 'ort' strategy.
+ LR1/feature1.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/feature1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline --graph --decorate -6
+*   6428bdd (HEAD -> demo-merge) LR1: Merge dev into demo-merge
+|\  
+| * 42b3bb3 (origin/dev, dev) LR1: Add feature1 in dev branch
+|/  
+* 0e2c21d (origin/main, main) LR1: Update version by person1
+* 09d7147 LR1: Update status by person2
+* 69a8e17 LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push -u origin demo-merge
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 234 bytes | 234.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'demo-merge' on GitHub by visiting:
+remote:      https://github.com/1URose/TRPO/pull/new/demo-merge
+remote: 
+To https://github.com/1URose/TRPO.git
+ * [new branch]      demo-merge -> demo-merge
+branch 'demo-merge' set up to track 'origin/demo-merge'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch -c demo-squash
+Switched to a new branch 'demo-squash'
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git merge --squash origin/dev2
+Updating 0e2c21d..f45e919
+Fast-forward
+Squash commit -- not updating HEAD
+ LR1/feature2.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 LR1/feature2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Squash dev2 into demo-squash"
+[demo-squash 995792c] LR1: Squash dev2 into demo-squash
+ 1 file changed, 2 insertions(+)
+ create mode 100644 LR1/feature2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> 
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline --graph -5
+* 995792c (HEAD -> demo-squash) LR1: Squash dev2 into demo-squash
+* 0e2c21d (origin/main, main) LR1: Update version by person1
+* 09d7147 LR1: Update status by person2
+* 69a8e17 LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push -u origin demo-squash
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 460 bytes | 460.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'demo-squash' on GitHub by visiting:
+remote:      https://github.com/1URose/TRPO/pull/new/demo-squash
+remote: 
+To https://github.com/1URose/TRPO.git
+ * [new branch]      demo-squash -> demo-squash
+branch 'demo-squash' set up to track 'origin/demo-squash'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch -c demo-rebase
+Switched to a new branch 'demo-rebase'
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> "Rebase demonstration" | Set-Content LR1/rebase.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> 
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/rebase.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Add rebase demonstration"
+[demo-rebase 9bf7fc8] LR1: Add rebase demonstration
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/rebase.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git rebase dev
+Successfully rebased and updated refs/heads/demo-rebase.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline --graph --decorate -7
+* fb0d74f (HEAD -> demo-rebase) LR1: Add rebase demonstration
+* 42b3bb3 (origin/dev, dev) LR1: Add feature1 in dev branch
+* 0e2c21d (origin/main, main) LR1: Update version by person1
+* 09d7147 LR1: Update status by person2
+* 69a8e17 LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push -u origin demo-rebase
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 353 bytes | 353.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'demo-rebase' on GitHub by visiting:
+remote:      https://github.com/1URose/TRPO/pull/new/demo-rebase
+remote: 
+To https://github.com/1URose/TRPO.git
+ * [new branch]      demo-rebase -> demo-rebase
+branch 'demo-rebase' set up to track 'origin/demo-rebase'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git fetch origin
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline --all --graph --decorate
+* fb0d74f (origin/demo-rebase, demo-rebase) LR1: Add rebase demonstration
+| * 995792c (origin/demo-squash, demo-squash) LR1: Squash dev2 into demo-squash
+| | * 6428bdd (origin/demo-merge, demo-merge) LR1: Merge dev into demo-merge
+| |/| 
+| |/  
+|/|   
+* | 42b3bb3 (origin/dev, dev) LR1: Add feature1 in dev branch
+|/  
+| * f45e919 (origin/dev2) LR1: Add feature2 in dev2 branch
+|/  
+* 0e2c21d (HEAD -> main, origin/main) LR1: Update version by person1
+* 09d7147 LR1: Update status by person2
+* 69a8e17 LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline --all --graph --decorate
+* fb0d74f (origin/demo-rebase, demo-rebase) LR1: Add rebase demonstration
+| * 995792c (origin/demo-squash, demo-squash) LR1: Squash dev2 into demo-squash
+| | * 6428bdd (origin/demo-merge, demo-merge) LR1: Merge dev into demo-merge
+| |/| 
+| |/  
+|/|   
+* | 42b3bb3 (origin/dev, dev) LR1: Add feature1 in dev branch
+|/  
+| * f45e919 (origin/dev2) LR1: Add feature2 in dev2 branch
+|/  
+* 0e2c21d (HEAD -> main, origin/main) LR1: Update version by person1
+* 09d7147 LR1: Update status by person2
+* 69a8e17 LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> cd ..
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO> git clone https://github.com/1URose/TRPO.git person3
+Cloning into 'person3'...
+remote: Enumerating objects: 28, done.
+remote: Counting objects: 100% (28/28), done.
+remote: Compressing objects: 100% (13/13), done.
+remote: Total 28 (delta 8), reused 22 (delta 2), pack-reused 0 (from 0)
+Receiving objects: 100% (28/28), done.
+Resolving deltas: 100% (8/8), done.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO> cd person3
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git switch -c dev3
+Switched to a new branch 'dev3'
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> "README updated by person3" | Set-Content LR1/README.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git add LR1/README.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git commit -m "LR1: Update README by person3"
+[dev3 ffd5e12] LR1: Update README by person3
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git push -u origin dev3
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 400 bytes | 400.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'dev3' on GitHub by visiting:
+remote:      https://github.com/1URose/TRPO/pull/new/dev3
+remote: 
+To https://github.com/1URose/TRPO.git
+ * [new branch]      dev3 -> dev3
+branch 'dev3' set up to track 'origin/dev3'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> cd ../person2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git switch dev2
+Already on 'dev2'
+Your branch is up to date with 'origin/dev2'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> "Project status: modified in dev2" | Set-Content LR1/status.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git add LR1/status.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git commit -m "LR1: Update status in dev2"
+[dev2 1e1f4d0] LR1: Update status in dev2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> git push origin dev2
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 351 bytes | 351.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/1URose/TRPO.git
+   f45e919..1e1f4d0  dev2 -> dev2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person2> cd ../person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch -c dev1
+Switched to a new branch 'dev1'
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> "README updated by person1" | Set-Content LR1/README.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/README.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Update README by person1"
+[dev1 816da51] LR1: Update README by person1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push -u origin dev1
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 399 bytes | 399.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'dev1' on GitHub by visiting:
+remote:      https://github.com/1URose/TRPO/pull/new/dev1
+remote: 
+To https://github.com/1URose/TRPO.git
+ * [new branch]      dev1 -> dev1
+branch 'dev1' set up to track 'origin/dev1'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git fetch origin
+remote: Enumerating objects: 16, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 8 (delta 1), reused 8 (delta 1), pack-reused 0 (from 0)
+Unpacking objects: 100% (8/8), 699 bytes | 34.00 KiB/s, done.
+From https://github.com/1URose/TRPO
+   f45e919..1e1f4d0  dev2       -> origin/dev2
+ * [new branch]      dev3       -> origin/dev3
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git branch -a
+  demo-merge
+  demo-rebase
+  demo-squash
+  dev
+* dev1
+  main
+  remotes/origin/demo-merge
+  remotes/origin/demo-rebase
+  remotes/origin/demo-squash
+  remotes/origin/dev
+  remotes/origin/dev1
+  remotes/origin/dev2
+  remotes/origin/dev3
+  remotes/origin/main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO> cd .\person1\
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline --all --graph --decorate
+* 816da51 (HEAD -> dev1, origin/dev1) LR1: Update README by person1
+| * 1e1f4d0 (origin/dev2) LR1: Update status in dev2
+| * f45e919 LR1: Add feature2 in dev2 branch
+|/  
+| * ffd5e12 (origin/dev3) LR1: Update README by person3
+|/  
+| * fb0d74f (origin/demo-rebase, demo-rebase) LR1: Add rebase demonstration
+| | * 995792c (origin/demo-squash, demo-squash) LR1: Squash dev2 into demo-squash
+| |/  
+|/|   
+| | * 6428bdd (origin/demo-merge, demo-merge) LR1: Merge dev into demo-merge
+| |/| 
+|/|/  
+| * 42b3bb3 (origin/dev, dev) LR1: Add feature1 in dev branch
+|/  
+* 0e2c21d (origin/main, main) LR1: Update version by person1
+* 09d7147 LR1: Update status by person2
+* 69a8e17 LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git merge --no-ff dev -m "LR1: Merge dev into main"
+Merge made by the 'ort' strategy.
+ LR1/feature1.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/feature1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git merge --no-ff origin/dev2 -m "LR1: Merge dev2 into main"
+Merge made by the 'ort' strategy.
+ LR1/feature2.txt | 2 ++
+ LR1/status.txt   | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 LR1/feature2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git merge --no-ff origin/dev3 -m "LR1: Merge dev3 into main"
+Merge made by the 'ort' strategy.
+ LR1/README.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git merge --no-ff dev1
+Auto-merging LR1/README.txt
+CONFLICT (content): Merge conflict in LR1/README.txt
+Automatic merge failed; fix conflicts and then commit the result.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+Your branch is ahead of 'origin/main' by 7 commits.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   LR1/README.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-Content LR1/README.txt
+<<<<<<< HEAD
+README updated by person3
+=======
+README updated by person1
+>>>>>>> dev1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> @(
+>>     "Laboratory Work 1: Git"
+>>     "README updated by person3"
+>>     "README updated by person1"
+>> ) | Set-Content LR1/README.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-Content LR1/README.txt
+Laboratory Work 1: Git
+README updated by person3
+README updated by person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git diff
+diff --cc LR1/README.txt
+index 84ac3fb,86d92d3..0000000
+--- a/LR1/README.txt
++++ b/LR1/README.txt
+@@@ -1,1 -1,1 +1,3 @@@
+++Laboratory Work 1: Git
+ +README updated by person3
++ README updated by person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/README.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+Your branch is ahead of 'origin/main' by 7 commits.
+  (use "git push" to publish your local commits)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   LR1/README.txt
+
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Resolve merge conflict between dev1 and dev3"
+[main a86e4b6] LR1: Resolve merge conflict between dev1 and dev3
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push origin main
+Enumerating objects: 26, done.
+Counting objects: 100% (24/24), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (11/11), 1.28 KiB | 1.28 MiB/s, done.
+Total 11 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/1URose/TRPO.git
+   0e2c21d..a86e4b6  main -> main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline --graph --decorate -15
+*   a86e4b6 (HEAD -> main, origin/main) LR1: Resolve merge conflict between dev1 and dev3
+|\  
+| * 816da51 (origin/dev1, dev1) LR1: Update README by person1
+* |   edc3885 LR1: Merge dev3 into main
+|\ \  
+| * | ffd5e12 (origin/dev3) LR1: Update README by person3
+| |/  
+* |   3476c2f LR1: Merge dev2 into main
+|\ \  
+| * | 1e1f4d0 (origin/dev2) LR1: Update status in dev2
+| * | f45e919 LR1: Add feature2 in dev2 branch
+| |/  
+* |   864faf7 LR1: Merge dev into main
+|\ \  
+| |/  
+|/|   
+| * 42b3bb3 (origin/dev, dev) LR1: Add feature1 in dev branch
+|/  
+* 0e2c21d LR1: Update version by person1
+* 09d7147 LR1: Update status by person2
+* 69a8e17 LR1: Initial commit with three files
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-Content LR1/README.txt
+Laboratory Work 1: Git
+README updated by person3
+README updated by person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch -c demo-history
+Switched to a new branch 'demo-history'
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> "History demonstration: first change" | Set-Content LR1/history.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/history.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: History demonstration step 1"
+[demo-history 1c7ee91] LR1: History demonstration step 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/history.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> "History demonstration: second change" | Set-Content LR1/history.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/history.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: History demonstration step 2"
+[demo-history acaf65e] LR1: History demonstration step 2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline -5
+acaf65e (HEAD -> demo-history) LR1: History demonstration step 2
+1c7ee91 LR1: History demonstration step 1
+a86e4b6 (origin/main, main) LR1: Resolve merge conflict between dev1 and dev3
+edc3885 LR1: Merge dev3 into main
+3476c2f LR1: Merge dev2 into main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log -p -2
+commit acaf65ec883beb349b5fbc3bd319b5a92cf9d093 (HEAD -> demo-history)
+Author: Ermakov Yaroslav <pengven357@gmail.com>
+Date:   Sun Nov 1 22:19:06 2026 +0300
+
+    LR1: History demonstration step 2
+
+diff --git a/LR1/history.txt b/LR1/history.txt
+index 47dc807..741a54b 100644
+--- a/LR1/history.txt
++++ b/LR1/history.txt
+@@ -1 +1 @@
+-History demonstration: first change
++History demonstration: second change
+
+commit 1c7ee919b8adb7a590e50ec1b9a7f628d5b14a7f
+Author: Ermakov Yaroslav <pengven357@gmail.com>
+Date:   Sun Nov 1 22:19:03 2026 +0300
+
+    LR1: History demonstration step 1
+
+diff --git a/LR1/history.txt b/LR1/history.txt
+new file mode 100644
+index 0000000..47dc807
+--- /dev/null
++++ b/LR1/history.txt
+@@ -0,0 +1 @@
++History demonstration: first change
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git reset --hard HEAD~1
+HEAD is now at 1c7ee91 LR1: History demonstration step 1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline -5
+1c7ee91 (HEAD -> demo-history) LR1: History demonstration step 1
+a86e4b6 (origin/main, main) LR1: Resolve merge conflict between dev1 and dev3
+edc3885 LR1: Merge dev3 into main
+3476c2f LR1: Merge dev2 into main
+864faf7 LR1: Merge dev into main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-Content LR1/history.txt
+History demonstration: first change
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> History demonstration: first change
+Get-History : Не удается привязать параметр "Count". Не удается преобразовать значение "first" в тип 
+"System.Int32". Ошибка: "Входная строка имела неверный формат."
+строка:1 знак:24
++ History demonstration: first change
++                        ~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-History], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.GetHistor 
+   yCommand
+ 
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git cherry-pick fb0d74f
+[demo-history bc91316] LR1: Add rebase demonstration
+ Date: Sun Nov 1 22:13:28 2026 +0300
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/rebase.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-Content LR1/rebase.txt
+Rebase demonstration
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline -6
+bc91316 (HEAD -> demo-history) LR1: Add rebase demonstration
+1c7ee91 LR1: History demonstration step 1
+a86e4b6 (origin/main, main) LR1: Resolve merge conflict between dev1 and dev3
+edc3885 LR1: Merge dev3 into main
+3476c2f LR1: Merge dev2 into main
+864faf7 LR1: Merge dev into main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch demo-history
+nothing to commit, working tree clean
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push -u origin demo-history
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (8/8), 677 bytes | 677.00 KiB/s, done.
+Total 8 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'demo-history' on GitHub by visiting:
+remote:      https://github.com/1URose/TRPO/pull/new/demo-history
+remote: 
+To https://github.com/1URose/TRPO.git
+ * [new branch]      demo-history -> demo-history
+branch 'demo-history' set up to track 'origin/demo-history'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline -8
+bc91316 (HEAD -> demo-history, origin/demo-history) LR1: Add rebase demonstration
+1c7ee91 LR1: History demonstration step 1
+a86e4b6 (origin/main, main) LR1: Resolve merge conflict between dev1 and dev3
+edc3885 LR1: Merge dev3 into main
+3476c2f LR1: Merge dev2 into main
+864faf7 LR1: Merge dev into main
+816da51 (origin/dev1, dev1) LR1: Update README by person1
+1e1f4d0 (origin/dev2) LR1: Update status in dev2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch demo-history
+Your branch is up to date with 'origin/demo-history'.
+
+nothing to commit, working tree clean
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch -c demo-interactive-rebase
+Switched to a new branch 'demo-interactive-rebase'
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> "First change" | Set-Content LR1/interactive1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/interactive1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Interactive rebase step 1"
+[demo-interactive-rebase 5ac13eb] LR1: Interactive rebase step 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/interactive1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> "Second change" | Set-Content LR1/interactive2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/interactive2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Interactive rebase step 2"
+[demo-interactive-rebase 79b0099] LR1: Interactive rebase step 2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/interactive2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> "Third change" | Set-Content LR1/interactive3.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/interactive3.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Interactive rebase step 3"
+[demo-interactive-rebase 40ac4c1] LR1: Interactive rebase step 3
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/interactive3.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline -5
+40ac4c1 (HEAD -> demo-interactive-rebase) LR1: Interactive rebase step 3
+79b0099 LR1: Interactive rebase step 2
+5ac13eb LR1: Interactive rebase step 1
+a86e4b6 (origin/main, main) LR1: Resolve merge conflict between dev1 and dev3
+edc3885 LR1: Merge dev3 into main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git rebase -i HEAD~3
+Successfully rebased and updated refs/heads/demo-interactive-rebase.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline -5
+2947e83 (HEAD -> demo-interactive-rebase) LR1: Interactive rebase step 2
+5ac13eb LR1: Interactive rebase step 1
+a86e4b6 (origin/main, main) LR1: Resolve merge conflict between dev1 and dev3
+edc3885 LR1: Merge dev3 into main
+3476c2f LR1: Merge dev2 into main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch demo-interactive-rebase
+nothing to commit, working tree clean
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-ChildItem LR1/interactive*.txt
+
+
+    Каталог: C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1\LR1
+
+
+Mode                 LastWriteTime         Length Name                                               
+----                 -------------         ------ ----                                               
+-a----        01.11.2026     22:20             14 interactive1.txt                                   
+-a----        01.11.2026     22:20             15 interactive2.txt                                   
+-a----        01.11.2026     22:22             14 interactive3.txt                                   
+
+
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push -u origin demo-interactive-rebase
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (9/9), 811 bytes | 811.00 KiB/s, done.
+Total 9 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+remote: 
+remote: Create a pull request for 'demo-interactive-rebase' on GitHub by visiting:
+remote:      https://github.com/1URose/TRPO/pull/new/demo-interactive-rebase
+remote: 
+To https://github.com/1URose/TRPO.git
+ * [new branch]      demo-interactive-rebase -> demo-interactive-rebase
+branch 'demo-interactive-rebase' set up to track 'origin/demo-interactive-rebase'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> cd ../person3
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git switch dev3
+Already on 'dev3'
+Your branch is up to date with 'origin/dev3'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> "First patch from dev3" | Set-Content LR1/patch1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git add LR1/patch1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git commit -m "LR1: Add first patch example"
+[dev3 6019b51] LR1: Add first patch example
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/patch1.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> "Second patch from dev3" | Set-Content LR1/patch2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git add LR1/patch2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git commit -m "LR1: Add second patch example"
+[dev3 24fc9e5] LR1: Add second patch example
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/patch2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git log --oneline -4
+24fc9e5 (HEAD -> dev3) LR1: Add second patch example
+6019b51 LR1: Add first patch example
+ffd5e12 (origin/dev3) LR1: Update README by person3
+0e2c21d (origin/main, origin/HEAD, main) LR1: Update version by person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> git format-patch -2 -o ../LR1-patches
+../LR1-patches/0001-LR1-Add-first-patch-example.patch
+../LR1-patches/0002-LR1-Add-second-patch-example.patch
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> Get-ChildItem ../LR1-patches
+
+
+    Каталог: C:\Users\pengv\OneDrive\Рабочий стол\TRPO\LR1-patches
+
+
+Mode                 LastWriteTime         Length Name                                               
+----                 -------------         ------ ----                                               
+-a----        01.11.2026     22:24            482 0001-LR1-Add-first-patch-example.patch             
+-a----        01.11.2026     22:24            484 0002-LR1-Add-second-patch-example.patch            
+
+
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> Get-Content (Get-ChildItem ../LR1-patches/*.patch | Sort-Object Name | Select-Object -First 1).FullName
+From 6019b5173a1309553e7a1f710a60ff343756f4da Mon Sep 17 00:00:00 2001
+From: Ermakov Yaroslav <pengven357@gmail.com>
+Date: Sun, 1 Nov 2026 22:23:49 +0300
+Subject: [PATCH 1/2] LR1: Add first patch example
+
+---
+ LR1/patch1.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 LR1/patch1.txt
+
+diff --git a/LR1/patch1.txt b/LR1/patch1.txt
+new file mode 100644
+index 0000000..8327bbd
+--- /dev/null
++++ b/LR1/patch1.txt
+@@ -0,0 +1 @@
++First patch from dev3
+-- 
+2.45.1.windows.1
+
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person3> cd ../person1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-ChildItem ../LR1-patches/*.patch |
+>>     Sort-Object Name |
+>>     ForEach-Object { git apply $_.FullName }
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-Content LR1/patch1.txt
+First patch from dev3
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> Get-Content LR1/patch2.txt
+Second patch from dev3
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        LR1/patch1.txt
+        LR1/patch2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git add LR1/patch1.txt LR1/patch2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git commit -m "LR1: Apply patches from dev3"
+[main 334b00b] LR1: Apply patches from dev3
+ 2 files changed, 2 insertions(+)
+ create mode 100644 LR1/patch1.txt
+ create mode 100644 LR1/patch2.txt
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push origin main
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (5/5), 419 bytes | 419.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/1URose/TRPO.git
+   a86e4b6..334b00b  main -> main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline -5
+334b00b (HEAD -> main, origin/main) LR1: Apply patches from dev3
+a86e4b6 LR1: Resolve merge conflict between dev1 and dev3
+edc3885 LR1: Merge dev3 into main
+3476c2f LR1: Merge dev2 into main
+864faf7 LR1: Merge dev into main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git tag v1.0.0
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git tag
+v1.0.0
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git tag -a v1.0.1 -m "Laboratory work 1: version 1.0.1"
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git tag -l
+v1.0.0
+v1.0.1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git show v1.0.1
+tag v1.0.1
+Tagger: Ermakov Yaroslav <pengven357@gmail.com>
+Date:   Sun Nov 1 22:26:31 2026 +0300
+
+Laboratory work 1: version 1.0.1
+
+commit 334b00bc50527462056f7f4c7640c69e826bf3f4 (HEAD -> main, tag: v1.0.1, tag: v1.0.0, origin/main)
+Author: Ermakov Yaroslav <pengven357@gmail.com>
+Date:   Sun Nov 1 22:24:22 2026 +0300
+
+    LR1: Apply patches from dev3
+
+diff --git a/LR1/patch1.txt b/LR1/patch1.txt
+new file mode 100644
+index 0000000..8327bbd
+--- /dev/null
++++ b/LR1/patch1.txt
+@@ -0,0 +1 @@
++First patch from dev3
+diff --git a/LR1/patch2.txt b/LR1/patch2.txt
+new file mode 100644
+index 0000000..6c85c4d
+--- /dev/null
++++ b/LR1/patch2.txt
+@@ -0,0 +1 @@
++Second patch from dev3
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push origin v1.0.1
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 185 bytes | 185.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/1URose/TRPO.git
+ * [new tag]         v1.0.1 -> v1.0.1
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git ls-remote --tags origin
+c6d9f16ed704e72982f8e9c538cbc68547a241d7        refs/tags/v1.0.1
+334b00bc50527462056f7f4c7640c69e826bf3f4        refs/tags/v1.0.1^{}
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git tag v1.0.2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git tag -l
+v1.0.0
+v1.0.1
+v1.0.2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git push origin --tags
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/1URose/TRPO.git
+ * [new tag]         v1.0.0 -> v1.0.0
+ * [new tag]         v1.0.2 -> v1.0.2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git ls-remote --tags origin
+334b00bc50527462056f7f4c7640c69e826bf3f4        refs/tags/v1.0.0
+c6d9f16ed704e72982f8e9c538cbc68547a241d7        refs/tags/v1.0.1
+334b00bc50527462056f7f4c7640c69e826bf3f4        refs/tags/v1.0.1^{}
+334b00bc50527462056f7f4c7640c69e826bf3f4        refs/tags/v1.0.2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git tag -l
+v1.0.0
+v1.0.1
+v1.0.2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git log --oneline --decorate -5
+334b00b (HEAD -> main, tag: v1.0.2, tag: v1.0.1, tag: v1.0.0, origin/main) LR1: Apply patches from dev3
+a86e4b6 LR1: Resolve merge conflict between dev1 and dev3
+edc3885 LR1: Merge dev3 into main
+3476c2f LR1: Merge dev2 into main
+864faf7 LR1: Merge dev into main
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git tag -l
+v1.0.0
+v1.0.1
+v1.0.2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git ls-remote --tags origin
+334b00bc50527462056f7f4c7640c69e826bf3f4        refs/tags/v1.0.0
+c6d9f16ed704e72982f8e9c538cbc68547a241d7        refs/tags/v1.0.1
+334b00bc50527462056f7f4c7640c69e826bf3f4        refs/tags/v1.0.1^{}
+334b00bc50527462056f7f4c7640c69e826bf3f4        refs/tags/v1.0.2
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\pengv\OneDrive\Рабочий стол\TRPO\person1> 

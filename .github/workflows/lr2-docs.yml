@@ -1,0 +1,24 @@
+name: LR2 Documentation
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Generate HTML documentation
+        run: python -m pydoc -w LR2.calculator
+      - name: Upload documentation artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: lr2-documentation
+          path: LR2.calculator.html
+          if-no-files-found: error

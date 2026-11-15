@@ -2,7 +2,7 @@ name: LR2 CI
 
 on:
   push:
-    branches: [main, development]
+    branches: [main, development, release]
   pull_request:
     branches: [main]
 

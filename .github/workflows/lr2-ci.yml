@@ -2,7 +2,7 @@ name: LR2 CI
 
 on:
   push:
-    branches: [main, development]
+    branches: [main, development, release]
   pull_request:
     branches: [main]
 
@@ -16,5 +16,8 @@ jobs:
         uses: actions/setup-python@v7
         with:
           python-version: '3.13'
+      - name: Wait before pull request validation
+        if: github.event_name == 'pull_request'
+        run: sleep 60
       - name: Run LR2 tests
         run: python -m unittest discover -s LR2/tests -p "test_*.py"

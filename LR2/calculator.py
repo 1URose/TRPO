@@ -22,3 +22,14 @@ def divide(first, second):
     Python raises ZeroDivisionError when ``second`` is zero.
     """
     return first / second
+
+
+def power(base, exponent):
+    """Return ``base`` raised to ``exponent``.
+
+    Raising zero to a negative power is undefined, so a clear standard
+    arithmetic exception is raised instead of relying on implementation detail.
+    """
+    if base == 0 and exponent < 0:
+        raise ZeroDivisionError("0 cannot be raised to a negative power")
+    return base ** exponent

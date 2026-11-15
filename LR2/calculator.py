@@ -64,7 +64,8 @@ def power(base, exponent):
         exponent: The power to apply; it can be positive, zero, or negative.
 
     Returns:
-        The value of ``base ** exponent``.
+        The value of ``base ** exponent`` computed with Python's exponentiation
+        operator.
 
     Raises:
         ZeroDivisionError: If ``base`` is zero and ``exponent`` is negative.
